@@ -45,5 +45,4 @@ void main() {
 
     kopie.setAmount(-5.0);
     IO.println("nach Änderung der Kopie:        " + einzahlung.equals(kopie));
-    IO.println(t1.hashCode());
 }

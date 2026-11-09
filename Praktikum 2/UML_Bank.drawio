@@ -1,87 +1,73 @@
 <mxfile host="app.diagrams.net">
   <diagram id="uml-bank" name="Klassendiagramm Bank">
-    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1300" math="0" shadow="0">
+    <mxGraphModel dx="2054" dy="1137" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- Package bank -->
-        <mxCell id="pkg" value="bank" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=22;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f5f5f5;strokeColor=#666666;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="0" y="0" width="930" height="970" as="geometry" />
+        <mxCell id="pkg" parent="1" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=22;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f5f5f5;strokeColor=#666666;dashed=0;" value="bank" vertex="1">
+          <mxGeometry height="970" width="930" x="10" y="20" as="geometry" />
         </mxCell>
-
-        <!-- Interface CalculateBill -->
-        <mxCell id="iface" value="«interface»&#xa;CalculateBill" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="300" y="50" width="300" height="66" as="geometry" />
+        <mxCell id="iface" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="«interface»&#xa;CalculateBill" vertex="1">
+          <mxGeometry height="66" width="300" x="300" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="iface_m" value="+ calculate(): double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" vertex="1" parent="iface">
-          <mxGeometry y="40" width="300" height="26" as="geometry" />
+        <mxCell id="iface_m" parent="iface" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2;" value="+ calculate(): double" vertex="1">
+          <mxGeometry height="26" width="300" y="40" as="geometry" />
         </mxCell>
-
-        <!-- Abstract class Transaction -->
-        <mxCell id="trans" value="Transaction" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="260" y="200" width="380" height="298" as="geometry" />
+        <mxCell id="trans" parent="1" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Transaction" vertex="1">
+          <mxGeometry height="298" width="380" x="260" y="200" as="geometry" />
         </mxCell>
-        <mxCell id="trans_a" value="- date: String&#xa;- amount: double&#xa;- description: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="trans">
-          <mxGeometry y="26" width="380" height="58" as="geometry" />
+        <mxCell id="trans_a" parent="trans" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- date: String&#xa;- amount: double&#xa;- description: String" vertex="1">
+          <mxGeometry height="58" width="380" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="trans_s" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="trans">
-          <mxGeometry y="84" width="380" height="8" as="geometry" />
+        <mxCell id="trans_s" parent="trans" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="380" y="84" as="geometry" />
         </mxCell>
-        <mxCell id="trans_m" value="+ Transaction(date: String, amount: double, description: String)&#xa;+ Transaction(other: Transaction)&#xa;+ getDate(): String&#xa;+ getAmount(): double&#xa;+ getDescription(): String&#xa;+ setDate(date: String): void&#xa;+ setAmount(amount: double): void&#xa;+ setDescription(description: String): void&#xa;+ toString(): String&#xa;+ equals(obj: Object): boolean&#xa;+ hashCode(): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="trans">
-          <mxGeometry y="92" width="380" height="206" as="geometry" />
+        <mxCell id="trans_m" parent="trans" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ Transaction(date: String, amount: double, description: String)&#xa;+ Transaction(other: Transaction)&#xa;+ getDate(): String&#xa;+ getAmount(): double&#xa;+ getDescription(): String&#xa;+ setDate(date: String): void&#xa;+ setAmount(amount: double): void&#xa;+ setDescription(description: String): void&#xa;+ toString(): String&#xa;+ equals(obj: Object): boolean&#xa;" vertex="1">
+          <mxGeometry height="206" width="380" y="92" as="geometry" />
         </mxCell>
-
-        <!-- Payment -->
-        <mxCell id="pay" value="Payment" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="20" y="630" width="400" height="280" as="geometry" />
+        <mxCell id="pay" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="Payment" vertex="1">
+          <mxGeometry height="280" width="400" x="20" y="630" as="geometry" />
         </mxCell>
-        <mxCell id="pay_a" value="- incomingInterest: double&#xa;- outgoingInterest: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="pay">
-          <mxGeometry y="26" width="400" height="40" as="geometry" />
+        <mxCell id="pay_a" parent="pay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- incomingInterest: double&#xa;- outgoingInterest: double" vertex="1">
+          <mxGeometry height="40" width="400" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="pay_s" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="pay">
-          <mxGeometry y="66" width="400" height="8" as="geometry" />
+        <mxCell id="pay_s" parent="pay" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="400" y="66" as="geometry" />
         </mxCell>
-        <mxCell id="pay_m" value="+ Payment(date: String, amount: double, description: String)&#xa;+ Payment(date: String, amount: double, description: String,&#xa;      incomingInterest: double, outgoingInterest: double)&#xa;+ Payment(other: Payment)&#xa;+ getIncomingInterest(): double&#xa;+ getOutgoingInterest(): double&#xa;+ setIncomingInterest(incomingInterest: double): void&#xa;+ setOutgoingInterest(outgoingInterest: double): void&#xa;+ calculate(): double&#xa;+ toString(): String&#xa;+ equals(obj: Object): boolean&#xa;+ hashCode(): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="pay">
-          <mxGeometry y="74" width="400" height="206" as="geometry" />
+        <mxCell id="pay_m" parent="pay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ Payment(date: String, amount: double, description: String)&#xa;+ Payment(date: String, amount: double, description: String,&#xa;      incomingInterest: double, outgoingInterest: double)&#xa;+ Payment(other: Payment)&#xa;+ getIncomingInterest(): double&#xa;+ getOutgoingInterest(): double&#xa;+ setIncomingInterest(incomingInterest: double): void&#xa;+ setOutgoingInterest(outgoingInterest: double): void&#xa;+ calculate(): double&#xa;+ toString(): String&#xa;+ equals(obj: Object): boolean&#xa;" vertex="1">
+          <mxGeometry height="206" width="400" y="74" as="geometry" />
         </mxCell>
-
-        <!-- Transfer -->
-        <mxCell id="tf" value="Transfer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="500" y="630" width="410" height="300" as="geometry" />
+        <mxCell id="tf" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="Transfer" vertex="1">
+          <mxGeometry height="300" width="410" x="500" y="630" as="geometry" />
         </mxCell>
-        <mxCell id="tf_a" value="- sender: String&#xa;- recipient: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="tf">
-          <mxGeometry y="26" width="410" height="40" as="geometry" />
+        <mxCell id="tf_a" parent="tf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- sender: String&#xa;- recipient: String" vertex="1">
+          <mxGeometry height="40" width="410" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="tf_s" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tf">
-          <mxGeometry y="66" width="410" height="8" as="geometry" />
+        <mxCell id="tf_s" parent="tf" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="410" y="66" as="geometry" />
         </mxCell>
-        <mxCell id="tf_m" value="+ Transfer(date: String, amount: double, description: String)&#xa;+ Transfer(date: String, amount: double, description: String,&#xa;      sender: String, recipient: String)&#xa;+ Transfer(other: Transfer)&#xa;+ getSender(): String&#xa;+ getRecipient(): String&#xa;+ setSender(sender: String): void&#xa;+ setRecipient(recipient: String): void&#xa;+ setAmount(amount: double): void&#xa;+ calculate(): double&#xa;+ toString(): String&#xa;+ equals(obj: Object): boolean&#xa;+ hashCode(): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="tf">
-          <mxGeometry y="74" width="410" height="226" as="geometry" />
+        <mxCell id="tf_m" parent="tf" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ Transfer(date: String, amount: double, description: String)&#xa;+ Transfer(date: String, amount: double, description: String,&#xa;      sender: String, recipient: String)&#xa;+ Transfer(other: Transfer)&#xa;+ getSender(): String&#xa;+ getRecipient(): String&#xa;+ setSender(sender: String): void&#xa;+ setRecipient(recipient: String): void&#xa;+ setAmount(amount: double): void&#xa;+ calculate(): double&#xa;+ toString(): String&#xa;+ equals(obj: Object): boolean&#xa;" vertex="1">
+          <mxGeometry height="226" width="410" y="74" as="geometry" />
         </mxCell>
-
-        <!-- Main (Default-Package) -->
-        <mxCell id="main" value="Main" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="330" y="1030" width="240" height="70" as="geometry" />
+        <mxCell id="main" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" value="Main" vertex="1">
+          <mxGeometry height="70" width="240" x="330" y="1030" as="geometry" />
         </mxCell>
-        <mxCell id="main_m" value="- Main()&#xa;+ main(args: String[]): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=4;" vertex="1" parent="main">
-          <mxGeometry y="26" width="240" height="44" as="geometry" />
+        <mxCell id="main_m" parent="main" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=4;" value="- Main()&#xa;+ main(args: String[]): void" vertex="1">
+          <mxGeometry height="44" width="240" y="26" as="geometry" />
         </mxCell>
-
-        <!-- Beziehungen -->
-        <mxCell id="e_real" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;rounded=0;" edge="1" parent="1" source="trans" target="iface">
+        <mxCell id="e_real" edge="1" parent="1" source="trans" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;rounded=0;" target="iface" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_pay" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="pay" target="trans">
+        <mxCell id="e_pay" edge="1" parent="1" source="pay" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" target="trans" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_tf" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="tf" target="trans">
+        <mxCell id="e_tf" edge="1" parent="1" source="tf" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" target="trans" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_main_pay" value="«use»" style="endArrow=open;endSize=12;endFill=0;html=1;dashed=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="main" target="pay">
+        <mxCell id="e_main_pay" edge="1" parent="1" source="main" style="endArrow=open;endSize=12;endFill=0;html=1;dashed=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" target="pay" value="«use»">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_main_tf" value="«use»" style="endArrow=open;endSize=12;endFill=0;html=1;dashed=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="main" target="tf">
+        <mxCell id="e_main_tf" edge="1" parent="1" source="main" style="endArrow=open;endSize=12;endFill=0;html=1;dashed=1;rounded=0;edgeStyle=orthogonalEdgeStyle;" target="tf" value="«use»">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>

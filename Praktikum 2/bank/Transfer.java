@@ -155,14 +155,4 @@ public class Transfer extends Transaction {
         return java.util.Objects.equals(sender, other.sender)
                 && java.util.Objects.equals(recipient, other.recipient);
     }
-
-    /**
-     * Hashcode, passend zu {@link #equals(Object)}.
-     *
-     * @return der Hashcode
-     */
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), sender, recipient);
-    }
 }
