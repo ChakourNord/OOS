@@ -172,14 +172,4 @@ public class Payment extends Transaction {
         return Double.compare(incomingInterest, other.incomingInterest) == 0
                 && Double.compare(outgoingInterest, other.outgoingInterest) == 0;
     }
-
-    /**
-     * Hashcode, passend zu {@link #equals(Object)}.
-     *
-     * @return der Hashcode
-     */
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), incomingInterest, outgoingInterest);
-    }
 }

@@ -135,7 +135,6 @@ public class PrivateBank implements Bank {
      *
      * @param obj das Objekt, mit dem verglichen wird
      * @return {@code true}, wenn alle Attribute gleich sind, sonst {@code false}
-     * @see #hashCode()
      */
     @Override
     public boolean equals(Object obj) {
@@ -150,16 +149,6 @@ public class PrivateBank implements Bank {
                 && Double.compare(incomingInterest, other.incomingInterest) == 0
                 && Double.compare(outcomingInterest, other.outcomingInterest) == 0
                 && Objects.equals(accountsToTransaction, other.accountsToTransaction);
-    }
-
-    /**
-     * Hashcode, passend zu {@link #equals(Object)}.
-     *
-     * @return der Hashcode
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, incomingInterest, outcomingInterest, accountsToTransaction);
     }
 
     // ---------- Methoden aus dem Interface Bank ----------
@@ -194,8 +183,10 @@ public class PrivateBank implements Bank {
         if (accountsToTransaction.containsKey(account)) {
             throw new AccountAlreadyExistsException("Account " + account + " Existiert bereits");
         }
-        if (new HashSet<>(transactions).size() != transactions.size()) {
-            throw new TransactionAlreadyExistException("in deiner befinden sich doplikate");
+        for (int i = 0; i < transactions.size(); i++) {
+            if (transactions.subList(0, i).contains(transactions.get(i))) {
+                throw new TransactionAlreadyExistException("in deiner befinden sich doplikate");
+            }
         }
         for (Transaction t : transactions) {
             if (!t.valid()) {

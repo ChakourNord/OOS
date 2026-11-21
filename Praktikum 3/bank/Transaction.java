@@ -127,7 +127,6 @@ public abstract class Transaction implements CalculateBill {
      *
      * @param obj das Objekt, mit dem verglichen wird
      * @return {@code true}, wenn Klasse und alle Attribute gleich sind, sonst {@code false}
-     * @see #hashCode()
      */
     @Override
     public boolean equals(Object obj) {
@@ -141,16 +140,5 @@ public abstract class Transaction implements CalculateBill {
         return java.util.Objects.equals(date, other.date)
                 && Double.compare(amount, other.amount) == 0
                 && java.util.Objects.equals(description, other.description);
-    }
-
-    // Muss zu equals passen: gleiche Objekte -> gleicher Hashcode
-    /**
-     * Hashcode, passend zu {@link #equals(Object)}.
-     *
-     * @return der Hashcode
-     */
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(date, amount, description);
     }
 }

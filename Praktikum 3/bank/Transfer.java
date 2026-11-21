@@ -39,7 +39,7 @@ public class Transfer extends Transaction {
      * @param recipient   Empfänger
      */
     public Transfer(String date, double amount, String description,
-                    String sender, String recipient) {
+            String sender, String recipient) {
         this(date, amount, description);
         setSender(sender);
         setRecipient(recipient);
@@ -63,14 +63,18 @@ public class Transfer extends Transaction {
      *
      * @return der Absender
      */
-    public String getSender() { return sender; }
+    public String getSender() {
+        return sender;
+    }
 
     /**
      * Liefert den Empfänger.
      *
      * @return der Empfänger
      */
-    public String getRecipient() { return recipient; }
+    public String getRecipient() {
+        return recipient;
+    }
 
     // ---------- Setter ----------
     /**
@@ -78,14 +82,18 @@ public class Transfer extends Transaction {
      *
      * @param sender neuer Absender
      */
-    public void setSender(String sender) { this.sender = sender; }
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
 
     /**
      * Setzt den Empfänger.
      *
      * @param recipient neuer Empfänger
      */
-    public void setRecipient(String recipient) { this.recipient = recipient; }
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
+    }
 
     // Nur positive Werte erlaubt, sonst Fehlermeldung und Wert bleibt unverändert
     // super.setAmount, weil amount in Transaction private ist
@@ -132,7 +140,8 @@ public class Transfer extends Transaction {
     }
 
     // ---------- Ausgabe ----------
-    // super.toString() liefert Datum, Betrag, Beschreibung -> hier nur das Neue dazu
+    // super.toString() liefert Datum, Betrag, Beschreibung -> hier nur das Neue
+    // dazu
     /**
      * Textdarstellung inklusive Sender und Empfänger.
      *
