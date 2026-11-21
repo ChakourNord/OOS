@@ -1,18 +1,8 @@
 import java.util.List;
 
-import bank.IncomingTransfer;
-import bank.OutgoingTransfer;
-import bank.Payment;
-import bank.PrivateBank;
-import bank.PrivateBankAlt;
-import bank.Bank;
-import bank.Transaction;
-import bank.Transfer;
-import bank.exception.AccountAlreadyExistsException;
-import bank.exception.AccountDoesNotExistException;
-import bank.exception.TransactionAlreadyExistException;
-import bank.exception.TransactionAttributeException;
-import bank.exception.TransactionDoesNotExistException;
+import bank.*;
+
+import bank.exception.*;
 
 /**
  * Testet die Bank (PrivateBank und PrivateBankAlt): alle Methoden des Interfaces
@@ -89,7 +79,7 @@ void erwarteException(String beschreibung, Class<? extends Exception> erwartet, 
  * Sendung/Empfang (Variante 1) oder als normaler Transfer (Variante 2).
  */
 Transfer ueberweisung(boolean variante1, boolean ausSichtDesSenders, double betrag,
-                      String sender, String recipient) {
+        String sender, String recipient) {
     if (!variante1) {
         return new Transfer("01.11.2026", betrag, "Überweisung", sender, recipient);
     }
@@ -119,7 +109,7 @@ void testeBank(Bank bank, boolean variante1) throws Exception {
     pruefe("Zins der Einzahlung von der Bank übernommen", 0.05, einzahlung.getIncomingInterest());
     pruefe("Zins der Auszahlung von der Bank übernommen", 0.1, auszahlung.getOutgoingInterest());
 
-    // 1000*0.95 = 950, -500*1.1 = -550, -100  ->  300
+    // 1000*0.95 = 950, -500*1.1 = -550, -100 -> 300
     pruefe("getAccountBalance Adam", 300.0, bank.getAccountBalance("Adam"));
     pruefe("getAccountBalance Eva", 100.0, bank.getAccountBalance("Eva"));
 
@@ -133,8 +123,10 @@ void testeBank(Bank bank, boolean variante1) throws Exception {
     pruefe("getTransactionsSorted absteigend, größter Betrag", 950.0, ab.getFirst().calculate());
     pruefe("getTransactionsSorted absteigend, kleinster Betrag", -550.0, ab.getLast().calculate());
 
-    // Variante 2: Die Sendung ist ein normaler Transfer, calculate() bleibt positiv.
-    // Nur getAccountBalance unterscheidet dort nach dem Sender (so verlangt es die Aufgabe).
+    // Variante 2: Die Sendung ist ein normaler Transfer, calculate() bleibt
+    // positiv.
+    // Nur getAccountBalance unterscheidet dort nach dem Sender (so verlangt es die
+    // Aufgabe).
     pruefe("getTransactionsByType positiv (Anzahl)", variante1 ? 1 : 2,
             bank.getTransactionsByType("Adam", true).size());
     pruefe("getTransactionsByType negativ (Anzahl)", variante1 ? 2 : 1,
@@ -173,7 +165,8 @@ void testeFehlerfaelle(Bank bank) throws Exception {
             TransactionAlreadyExistException.class, () -> bank.createAccount("Neu",
                     List.of(new Payment("01.11.2026", 10.0, "A"), new Payment("01.11.2026", 10.0, "A"))));
 
-    // Transfer mit negativem Betrag: der Setter lehnt den Wert ab, amount bleibt 0 -> ungültig
+    // Transfer mit negativem Betrag: der Setter lehnt den Wert ab, amount bleibt 0
+    // -> ungültig
     erwarteException("createAccount mit Liste: ungültige Transaktion",
             TransactionAttributeException.class, () -> bank.createAccount("Neu2",
                     List.of(new Transfer("01.11.2026", -30.0, "ungültig", "A", "B"))));
