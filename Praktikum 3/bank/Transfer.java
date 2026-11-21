@@ -108,6 +108,17 @@ public class Transfer extends Transaction {
         super.setAmount(amount);
     }
 
+    // ---------- Validierung ----------
+    /**
+     * Prüft, ob der Betrag positiv ist.
+     *
+     * @return {@code true}, wenn {@code amount > 0}, sonst {@code false}
+     */
+    @Override
+    public boolean valid() {
+        return getAmount() > 0;
+    }
+
     // ---------- Berechnung ----------
     // Bei Überweisungen fallen keine Zinsen an -> Betrag unverändert
     /**

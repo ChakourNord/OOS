@@ -93,6 +93,15 @@ public abstract class Transaction implements CalculateBill {
      */
     public void setDescription(String description) { this.description = description; }
 
+    // ---------- Validierung ----------
+    /**
+     * Prüft, ob alle Attribute gültig sind. Wird von der Bank aufgerufen, die bei
+     * {@code false} eine {@code TransactionAttributeException} wirft.
+     *
+     * @return {@code true}, wenn alle Attribute gültig sind, sonst {@code false}
+     */
+    public abstract boolean valid();
+
     // ---------- Ausgabe ----------
     // Als Betrag kommt calculate() raus (berechneter Wert), nicht das rohe amount
     // Payment und Transfer hängen ihre eigenen Attribute mit super.toString() hinten dran

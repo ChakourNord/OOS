@@ -105,6 +105,18 @@ public class Payment extends Transaction {
         this.outgoingInterest = outgoingInterest;
     }
 
+    // ---------- Validierung ----------
+    /**
+     * Prüft, ob beide Zinssätze zwischen 0 und 1 liegen.
+     *
+     * @return {@code true}, wenn beide Zinssätze gültig sind, sonst {@code false}
+     */
+    @Override
+    public boolean valid() {
+        return incomingInterest >= 0 && incomingInterest <= 1
+                && outgoingInterest >= 0 && outgoingInterest <= 1;
+    }
+
     // ---------- Berechnung ----------
     // Einzahlung: Zins wird abgezogen     -> 1000 * (1 - 0.05) =  950
     // Auszahlung: Zins wird aufgeschlagen -> -1000 * (1 + 0.1) = -1100
